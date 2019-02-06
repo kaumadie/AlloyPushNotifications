@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app 
+  xmlns:ti="http://ti.appcelerator.org">
+  <id>com.auxenta.FirebaseCloudMessage</id>
+  <name>FirebaseCloudMessage</name>
+  <version>1.0</version>
+  <publisher>kaumadie</publisher>
+  <url/>
+  <description>undefined</description>
+  <copyright>2018 by kaumadie</copyright>
+  <icon>appicon.png</icon>
+  <fullscreen>false</fullscreen>
+  <navbar-hidden>false</navbar-hidden>
+  <analytics>true</analytics>
+  <guid>8ea54ff4-9901-46d5-9555-d185dda638ea</guid>
+  <property name="ti.ui.defaultunit" type="string">dp</property>
+  <property name="run-on-main-thread" type="bool">true</property>
+  <ios>
+    <enable-launch-screen-storyboard>true</enable-launch-screen-storyboard>
+    <use-app-thinning>true</use-app-thinning>
+    <plist>
+      <dict>
+        <key>UISupportedInterfaceOrientations~iphone</key>
+        <array>
+          <string>UIInterfaceOrientationPortrait</string>
+        </array>
+        <key>UISupportedInterfaceOrientations~ipad</key>
+        <array>
+          <string>UIInterfaceOrientationPortrait</string>
+          <string>UIInterfaceOrientationPortraitUpsideDown</string>
+          <string>UIInterfaceOrientationLandscapeLeft</string>
+          <string>UIInterfaceOrientationLandscapeRight</string>
+        </array>
+        <key>UIRequiresPersistentWiFi</key>
+        <false/>
+        <key>UIPrerenderedIcon</key>
+        <false/>
+        <key>UIStatusBarHidden</key>
+        <false/>
+        <key>UIStatusBarStyle</key>
+        <string>UIStatusBarStyleDefault</string>
+      </dict>
+    </plist>
+  </ios>
+  <android xmlns:android="http://schemas.android.com/apk/res/android">
+     <manifest>
+	      <application>
+	        <service android:name="com.auxenta.FirebaseCloudMessage.gcm.RegistrationIntentService" android:exported="false"/>
+	        <receiver android:name="com.google.android.gms.measurement.AppMeasurementReceiver" android:enabled="true">
+	          <intent-filter>
+	            <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+	          </intent-filter>
+	        </receiver>
+	        <service android:name="com.auxenta.FirebaseCloudMessage.gcm.GcmIntentService" android:exported="false">
+	          <intent-filter>
+	            <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+	          </intent-filter>
+	        </service>
+	        <service android:name="com.auxenta.FirebaseCloudMessage.gcm.GcmIntentService" android:exported="false">
+	          <intent-filter>
+	            <action android:name="com.google.android.c2dm.intent.SEND"/>
+	          </intent-filter>
+	        </service>
+	        <service android:name="com.auxenta.FirebaseCloudMessage.gcm.GcmIDListenerService" android:exported="false">
+	          <intent-filter>
+	            <action android:name="com.google.android.gms.iid.InstanceID"/>
+	          </intent-filter>
+	        </service>
+	      </application>
+          <uses-permission android:name="android.permission.INTERNET"/>
+
+	    </manifest>
+    </android>
+    <modules>
+      <module platform="commonjs">ti.cloud</module>
+      <module platform="iphone">firebase.cloudmessaging</module>
+      <module platform="android">firebase.cloudmessaging</module>
+      <module platform="iphone">firebase.core</module>
+      <module platform="android">firebase.core</module>
+      <module platform="android">ti.playservices</module>
+      <module platform="android">ti.cloudpush</module>
+    </modules>
+    <deployment-targets>
+      <target device="android">true</target>
+      <target device="ipad">true</target>
+      <target device="iphone">true</target>
+    </deployment-targets>
+    <sdk-version>7.4.0.GA</sdk-version>
+    <plugins>
+      <plugin version="1.0">ti.alloy</plugin>
+    </plugins>
+    <property name="appc-app-id" type="string">5b0552ee4793670cf2213ed1</property>
+    <property name="acs-authbase-url-development" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-development" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-development" type="string">1m9ND5UkOmmcEApcbHpIbwIjMPgLaVqy</property>
+    <property name="acs-oauth-key-development" type="string">0ZiSnDz3dVsMofHIOqohSafm6rYWFPxu</property>
+    <property name="acs-api-key-development" type="string">S1RGMS1PuWlHvM3chrSvtAvzjY0xuD8x</property>
+    <property name="acs-username-development" type="string">appc_app_user_dev</property>
+    <property name="acs-password-development" type="string">wio9XKQo0hsiGaExnY</property>
+    <property name="acs-authbase-url-production" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-production" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-production" type="string">uIPJ0y1iHPoQqMz3IjCveWeB7gYEFxoz</property>
+    <property name="acs-oauth-key-production" type="string">W30ffLg5fjRKOVODRdpkQ4TXOkrgLlf8</property>
+    <property name="acs-api-key-production" type="string">LtAvQ2CppbgY8Grsg0E6E5ZzDU84EZIm</property>
+    <property name="acs-username-production" type="string">appc_app_user</property>
+    <property name="acs-password-production" type="string">pWoeQyc9VTGZGldbLG</property>
+    <property name="appc-org-id" type="string">16382458343692</property>
+    <property name="appc-creator-user-id" type="string">2d18a369-4bdc-44f5-85bd-27ec172705d1</property>
+  </ti:app>
