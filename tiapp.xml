@@ -67,9 +67,8 @@
 	          </intent-filter>
 	        </service>
 	      </application>
-          <uses-permission android:name="android.permission.INTERNET"/>
-
-	    </manifest>
+              <uses-permission android:name="android.permission.INTERNET"/>
+        </manifest>
     </android>
     <modules>
       <module platform="commonjs">ti.cloud</module>
